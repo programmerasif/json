@@ -11,20 +11,44 @@
     
 // }
 // export {adToDB}
+// const adToDB = (id) =>{
+//    let shoppingCart = {};
+
+
+//     const quantiti = shoppingCart[id]
+//     console.log(quantiti);
+//   if (quantiti) {
+//     const newQuantiti = parseInt(quantiti) +1
+//     shoppingCart[id] =newQuantiti
+//   }
+//   else{
+   
+//     shoppingCart[id] = 1;
+//   }
+//   localStorage.setItem('shopingCart', JSON.stringify(shoppingCart))
+// }
 const adToDB = (id) =>{
-   let shoppingCart = {};
+  let shopingCard;
+
+// get the shoping card 
+const stordCard = localStorage.getItem('shopingCard')
+if (stordCard) {
+  shopingCard = JSON.parse(stordCard)
+}
+else{
+  shopingCard = {}
+}
 
 
-    const quantiti = shoppingCart[id]
-    console.log(quantiti);
-  if (quantiti) {
-    const newQuantiti = parseInt(quantiti) +1
-    shoppingCart[id] =newQuantiti
+//add quantity
+  const quantity  = shopingCard[id]
+  if (quantity) {
+    const newQuantity = quantity + 1
+    shopingCard[id]= newQuantity
   }
   else{
-   
-    shoppingCart[id] = 1;
+    shopingCard[id] = 1
   }
-  localStorage.setItem('shopingCart', JSON.stringify(shoppingCart))
+  localStorage.setItem('shopingCard',JSON.stringify(shopingCard))
 }
 export {adToDB}
